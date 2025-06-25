@@ -1,0 +1,33 @@
+<h2 mat-dialog-title>Edit Task {{ task.title }}</h2>
+<mat-dialog-content id="editTaskContent">
+  <mat-form-field>
+    <mat-label>Task Name</mat-label>
+    <input matInput [(ngModel)]="task.title" name="name" required />
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Task Description</mat-label>
+    <textarea
+      matInput
+      [(ngModel)]="task.description"
+      name="description"
+      required
+    ></textarea>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Assigned To</mat-label>
+    <input matInput [(ngModel)]="task.assignedTo" />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Status</mat-label>
+    <select matNativeControl [(ngModel)]="task.status">
+      <option *ngFor="let status of statuses" [value]="status">
+        {{ status }}
+      </option>
+    </select>
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions id="editTaskActions">
+  <button mat-button class="btn btn-cancel" (click)="cancel()">Cancel</button>
+  <button mat-button class="btn btn-save" (click)="save()">Save</button>
+</mat-dialog-actions>

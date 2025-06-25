@@ -1,0 +1,41 @@
+<form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="taskName">Task Title</label>
+        <input
+          type="text"
+          id="taskName"
+          name="taskName"
+          [(ngModel)]="title"
+          class="form-control"
+          required/>
+
+        <label for="taskDescription">Description</label>
+        <textarea
+          id="taskDescription"
+          name="taskDescription"
+          [(ngModel)]="taskDescription"
+          class="form-control"
+         rows="4"
+        ></textarea>
+
+        <label for="assignedTo">Assigned to</label>
+        <textarea
+          id="assignedTo"
+          name="assignedTo"
+          [(ngModel)]="assignedTo"
+          class="form-control"
+         rows="4"
+        ></textarea>
+
+        <label for="status">Status</label>
+        <select id="status" name="status" [(ngModel)]="status" class="form-control">
+          <option value="ToDo">To Do</option>
+          <option value="InProgress">In Progress</option>
+          <option value="Done">Done</option>
+        </select>
+      </div> 
+
+      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="button" class="secondary-btn" (click)="onCancel()">Cancel</button>
+</form>
+    
